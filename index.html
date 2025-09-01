@@ -1,71 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Roblox Launcher</title>
-<style>
-  body {
-    font-family: sans-serif;
-    background: #121212;
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 50px;
-  }
-  input {
-    padding: 8px;
-    font-size: 16px;
-    width: 250px;
-    margin-bottom: 10px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-  }
-  button {
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 4px;
-    border: none;
-    background-color: #0074BD;
-    color: white;
-  }
-  button:hover {
-    background-color: #005fa3;
-  }
-</style>
+  <meta charset="UTF-8">
+  <title>Roblox Launcher</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #121212;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 50px;
+    }
+    input {
+      padding: 8px;
+      font-size: 16px;
+      width: 250px;
+      margin-bottom: 10px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 4px;
+      border: none;
+      background-color: #0074BD;
+      color: white;
+    }
+    button:hover {
+      background-color: #005fa3;
+    }
+  </style>
 </head>
 <body>
 
 <h1>syntax joiner</h1>
 <input type="text" id="placeId" placeholder="enter game id" />
-<button onclick="launchGame()">join game </button>
+<button onclick="launchGame()">join game</button>
 
 <script>
 function launchGame() {
-    var placeid = document.getElementById('placeId').value.trim();
-    if (!placeid) {
-        alert("enter place id!");
-        return;
-    }
-
-    var ararar = navigator.userAgent.toLowerCase();
-    var isIOSRoblox = ararar.indexOf('roblox ios') !== -1;
-    var isIOSMobile = (ararar.indexOf('iphone') !== -1 || ararar.indexOf('ipad') !== -1) && ararar.indexOf('safari') !== -1;
-    var clientyear = 2016; // можно менять при необходимости
-
-    if (isIOSMobile) {
-        if (clientyear == 2016) {
-            window.location.href = 'synt16mobile://Game/PlaceLauncher.ashx?request=RequestGame&placeId=' + placeid;
-        } else {
-            window.location.href = 'robloxmobile://Game/PlaceLauncher.ashx?request=RequestGame&placeId=' + placeid;
-        }
-        return;
-    } else {
-        alert("this is not ios device");
-    }
+  var placeid = document.getElementById('placeId').value.trim();
+  if (!placeid) {
+    alert("enter place id!");
+    return;
+  }
+  window.location.href = 'robloxmobile://Game/PlaceLauncher.ashx?request=RequestGame&placeId=' + placeid;
 }
 </script>
 
 </body>
 </html>
+
